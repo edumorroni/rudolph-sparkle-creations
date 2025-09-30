@@ -40,16 +40,6 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in">
               <Button
                 size="lg"
-                asChild
-                className="bg-secondary text-secondary-foreground hover:shadow-glow text-lg px-8"
-              >
-                <a href="#contato">
-                  Solicite um Orçamento
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-              <Button
-                size="lg"
                 variant="outline"
                 asChild
                 className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 text-lg px-8"

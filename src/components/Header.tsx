@@ -49,7 +49,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA & Social */}
+          {/* Social */}
           <div className="hidden md:flex items-center gap-4">
             <a
               href="https://instagram.com/rudolphshining"
@@ -59,12 +59,6 @@ const Header = () => {
             >
               <Instagram className="h-5 w-5" />
             </a>
-            <Button
-              asChild
-              className="bg-gradient-primary text-primary-foreground hover:shadow-glow"
-            >
-              <a href="#contato">Solicite um Orçamento</a>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -99,12 +93,6 @@ const Header = () => {
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
-                <Button
-                  asChild
-                  className="bg-gradient-primary text-primary-foreground flex-1"
-                >
-                  <a href="#contato">Solicite um Orçamento</a>
-                </Button>
               </div>
             </nav>
           </div>
