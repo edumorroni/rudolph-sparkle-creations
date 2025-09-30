@@ -11,9 +11,9 @@ const Hero = () => {
         <img
           src={heroBackground}
           alt="Decoração Natalina Premium"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background/50 to-accent/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,75%,25%)] via-[hsl(0,70%,30%)] to-[hsl(0,65%,20%)]"></div>
       </div>
 
       {/* Content */}
