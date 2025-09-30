@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import logo from "@/assets/logo-monochrome.png";
 
 const Footer = () => {
@@ -44,12 +44,6 @@ const Footer = () => {
               >
                 <Mail className="h-5 w-5" />
               </a>
-              <a
-                href="tel:+5511999999999"
-                className="text-accent-foreground/60 hover:text-secondary transition-colors"
-              >
-                <Phone className="h-5 w-5" />
-              </a>
             </div>
           </div>
 
@@ -90,11 +84,6 @@ const Footer = () => {
                 <strong className="text-accent-foreground">Email:</strong>
                 <br />
                 contato@rudolphshining.com.br
-              </li>
-              <li>
-                <strong className="text-accent-foreground">Telefone:</strong>
-                <br />
-                (11) 99999-9999
               </li>
               <li>
                 <strong className="text-accent-foreground">Instagram:</strong>

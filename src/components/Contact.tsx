@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, Instagram, MapPin } from "lucide-react";
+import { Mail, Instagram, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -39,12 +39,6 @@ Mensagem: ${formData.message}`;
   };
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: "Telefone",
-      content: "(11) 99999-9999",
-      href: "tel:+5511999999999",
-    },
     {
       icon: Mail,
       title: "Email",
