@@ -1,5 +1,5 @@
 import { Instagram, Mail, Phone } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-monochrome.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <img src={logo} alt="Rudolph Shining" className="h-12 w-auto mb-4 brightness-0 invert" />
+            <img src={logo} alt="Rudolph Shining" className="h-12 w-auto mb-4 invert" />
             <p className="text-sm text-accent-foreground/80 mb-4">
               Iluminando Sonhos, Transformando Espaços
             </p>

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
-import rudolphMascot from "@/assets/rudolph-mascot.png";
+import rudolphMascot from "@/assets/rudolph-mascot-new.png";
 
 const Hero = () => {
   return (
@@ -11,9 +11,9 @@ const Hero = () => {
         <img
           src={heroBackground}
           alt="Decoração Natalina Premium"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-hero"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background/50 to-accent/40"></div>
       </div>
 
       {/* Content */}
@@ -77,11 +77,14 @@ const Hero = () => {
 
           {/* Mascot Image */}
           <div className="hidden lg:flex justify-center items-center animate-fade-in">
-            <img
-              src={rudolphMascot}
-              alt="Brilhus - Mascote Rudolph Shining"
-              className="w-full max-w-md drop-shadow-2xl hover-lift"
-            />
+            <div className="relative">
+              <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full"></div>
+              <img
+                src={rudolphMascot}
+                alt="Brilhus - Mascote Rudolph Shining"
+                className="relative w-full max-w-lg drop-shadow-2xl hover-lift"
+              />
+            </div>
           </div>
         </div>
       </div>
