@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Instagram, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -44,12 +44,6 @@ Mensagem: ${formData.message}`;
       title: "Email",
       content: "contato@rudolphshining.com.br",
       href: "mailto:contato@rudolphshining.com.br",
-    },
-    {
-      icon: Instagram,
-      title: "Instagram",
-      content: "@rudolphshining",
-      href: "https://instagram.com/rudolphshining",
     },
     {
       icon: MapPin,

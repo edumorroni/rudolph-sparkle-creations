@@ -20,21 +20,21 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10 py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center">
             <div className="mb-8 animate-fade-in">
               <img
                 src={logoHero}
                 alt="Rudolph Shining - Iluminando Sonhos, Transformando Espaços"
-                className="w-full max-w-2xl mx-auto lg:mx-0"
+                className="w-full max-w-2xl mx-auto"
               />
             </div>
 
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl animate-fade-in">
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in">
               Especialistas em decoração natalina premium para condomínios, empresas e shoppings.
               Projetos personalizados que encantam e geram valor.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Button
                 size="lg"
                 variant="outline"
@@ -46,16 +46,16 @@ const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mt-12 max-w-xl animate-fade-in">
-              <div className="text-center lg:text-left">
+            <div className="grid grid-cols-3 gap-8 mt-12 max-w-xl mx-auto animate-fade-in">
+              <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">15+</div>
                 <div className="text-sm text-white/80">Anos de Experiência</div>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">100%</div>
                 <div className="text-sm text-white/80">Satisfação</div>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">LED</div>
                 <div className="text-sm text-white/80">Sustentável</div>
               </div>
@@ -69,7 +69,7 @@ const Hero = () => {
               <img
                 src={rudolphMascot}
                 alt="Brilhus - Mascote Rudolph Shining"
-                className="relative w-full max-w-lg drop-shadow-2xl hover-lift"
+                className="relative w-full max-w-lg drop-shadow-2xl hover-lift scale-x-[-1]"
               />
             </div>
           </div>

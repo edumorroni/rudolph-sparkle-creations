@@ -1,4 +1,4 @@
-import { Instagram, Mail, Facebook, Linkedin } from "lucide-react";
+import { Mail, Facebook, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -30,15 +30,6 @@ const Footer = () => {
               Iluminando Sonhos, Transformando Espaços
             </p>
             <div className="flex gap-4">
-              <a
-                href="https://instagram.com/rudolphshining"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent-foreground/60 hover:text-secondary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61581549396234&locale=pt_BR"
                 target="_blank"
@@ -104,11 +95,6 @@ const Footer = () => {
                 <strong className="text-accent-foreground">Email:</strong>
                 <br />
                 contato@rudolphshining.com.br
-              </li>
-              <li>
-                <strong className="text-accent-foreground">Instagram:</strong>
-                <br />
-                @rudolphshining
               </li>
             </ul>
           </div>
