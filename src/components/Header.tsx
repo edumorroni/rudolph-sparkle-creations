@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Instagram } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -49,18 +48,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Social */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="https://instagram.com/rudolphshining"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground/60 hover:text-primary transition-colors"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-foreground"
@@ -84,16 +71,6 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <a
-                  href="https://instagram.com/rudolphshining"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground/60 hover:text-primary transition-colors"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-              </div>
             </nav>
           </div>
         )}

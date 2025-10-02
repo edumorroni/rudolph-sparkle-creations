@@ -1,4 +1,4 @@
-import { Mail, Facebook, Linkedin } from "lucide-react";
+import { Mail, Facebook, Linkedin, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -31,7 +31,16 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/profile.php?id=61581549396234&locale=pt_BR"
+                href="https://www.instagram.com/rudolphshining"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-foreground/60 hover:text-secondary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.facebook.com/people/Rudolph-Shining/61581549396234/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-foreground/60 hover:text-secondary transition-colors"
