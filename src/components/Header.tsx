@@ -19,7 +19,6 @@ const Header = () => {
     { label: "Sobre", href: "#sobre" },
     { label: "Serviços", href: "#servicos" },
     { label: "Diferenciais", href: "#diferenciais" },
-    { label: "Contato", href: "#contato" },
   ];
 
   return (
