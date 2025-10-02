@@ -1,5 +1,5 @@
-import { Instagram, Mail } from "lucide-react";
-import logo from "@/assets/logo-monochrome.png";
+import { Instagram, Mail, Facebook, Linkedin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <img src={logo} alt="Rudolph Shining" className="h-12 w-auto mb-4 invert" />
+            <img src={logo} alt="Rudolph Shining" className="h-12 w-auto mb-4" />
             <p className="text-sm text-accent-foreground/80 mb-4">
               Iluminando Sonhos, Transformando Espaços
             </p>
@@ -35,12 +35,32 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-foreground/60 hover:text-secondary transition-colors"
+                aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
+                href="https://www.facebook.com/profile.php?id=61581549396234&locale=pt_BR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-foreground/60 hover:text-secondary transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/rudolphshining"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-foreground/60 hover:text-secondary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
                 href="mailto:contato@rudolphshining.com.br"
                 className="text-accent-foreground/60 hover:text-secondary transition-colors"
+                aria-label="Email"
               >
                 <Mail className="h-5 w-5" />
               </a>

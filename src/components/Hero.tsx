@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
 import rudolphMascot from "@/assets/rudolph-mascot-new.png";
+import logoHero from "@/assets/logo-hero.png";
 
 const Hero = () => {
   return (
@@ -21,16 +21,13 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect mb-6 animate-fade-in">
-              <Sparkles className="h-4 w-4 text-secondary" />
-              <span className="text-sm font-medium">15+ Anos de Experiência</span>
+            <div className="mb-8 animate-fade-in">
+              <img
+                src={logoHero}
+                alt="Rudolph Shining - Iluminando Sonhos, Transformando Espaços"
+                className="w-full max-w-2xl mx-auto lg:mx-0"
+              />
             </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight animate-fade-in">
-              Iluminando Sonhos,
-              <br />
-              <span className="text-gradient-gold">Transformando Espaços</span>
-            </h1>
 
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl animate-fade-in">
               Especialistas em decoração natalina premium para condomínios, empresas e shoppings.
