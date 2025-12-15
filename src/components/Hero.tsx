@@ -30,8 +30,7 @@ const Hero = () => {
             </div>
 
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in">
-              Especialistas em decoração natalina premium para condomínios, empresas e shoppings.
-              Projetos personalizados que encantam e geram valor.
+              Especialistas em transformar ambientes com projetos decorativos personalizados para condomínios, empresas e shoppings, que encantam e geram valor.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">

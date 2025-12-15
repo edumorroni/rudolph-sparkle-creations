@@ -1,31 +1,31 @@
 import { Building2, ShoppingBag, Home } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import residentialImage from "@/assets/service-residential.jpg";
-import corporateImage from "@/assets/service-corporate.jpg";
-import shoppingImage from "@/assets/service-shopping.jpg";
+import residentialImage from "@/assets/service-residential-new.png";
+import corporateImage from "@/assets/service-corporate-new.jpg";
+import shoppingImage from "@/assets/service-shopping-new.png";
 
 const Services = () => {
   const services = [
     {
-      icon: Home,
-      title: "Condomínios Residenciais",
-      description: "Transforme áreas comuns em espaços mágicos que encantam moradores e visitantes. Decorações elegantes que valorizam o empreendimento.",
-      image: residentialImage,
-      features: ["Áreas comuns", "Halls de entrada", "Salões de festa", "Fachadas"],
+      icon: ShoppingBag,
+      title: "Shoppings e Outlets",
+      description: "Projetos personalizados que encantam e geram experiências memoráveis, atraindo o público e fortalecendo campanhas sazonais para impulsionar as vendas.",
+      image: shoppingImage,
+      features: ["Fachadas", "Decorações aéreas", "Corredores e Pórticos de Acesso", "Praças de Evento e Áreas Externas"],
     },
     {
       icon: Building2,
-      title: "Empresas e Corporativo",
-      description: "Crie um ambiente acolhedor e festivo para colaboradores e clientes. Decorações que refletem a identidade da sua empresa.",
+      title: "Empresas e Corporativos",
+      description: "Espaços acolhedores e festivos para colaboradores e clientes, traduzindo a identidade da sua empresa ou comércio em uma atmosfera mágica e encantadora.",
       image: corporateImage,
-      features: ["Recepções", "Escritórios", "Eventos corporativos", "Fachadas"],
+      features: ["Fachadas e Acessos", "Recepções", "Escritórios", "Vitrines"],
     },
     {
-      icon: ShoppingBag,
-      title: "Shoppings e Comércio",
-      description: "Projetos de grande porte que atraem público e geram experiências memoráveis. Instalações espetaculares que impulsionam vendas.",
-      image: shoppingImage,
-      features: ["Praças centrais", "Corredores", "Vitrines", "Fachadas"],
+      icon: Home,
+      title: "Condomínios Residenciais",
+      description: "Transforme áreas comuns em espaços mágicos que encantam moradores e visitantes. Decorações elegantes que valorizam o empreendimento, com a segurança e excelência de uma instalação profissional e planejada.",
+      image: residentialImage,
+      features: ["Portarias", "Hall de entrada", "Vegetação e Paisagismo", "Áreas comuns"],
     },
   ];
 
@@ -38,7 +38,7 @@ const Services = () => {
             Nossos <span className="text-gradient-gold">Serviços</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Soluções completas em decoração natalina para diferentes segmentos
+            Soluções completas em decoração temática para diferentes segmentos
           </p>
         </div>
 

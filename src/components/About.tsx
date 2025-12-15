@@ -10,7 +10,7 @@ const About = () => {
             Quem <span className="text-gradient-primary">Somos</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A Rudolph Shining é especialista em transformar ambientes por meio da decoração natalina temática
+            A Rudolph Shining é especialista em transformar ambientes por meio da decoração e iluminação temática.
           </p>
         </div>
 
@@ -20,8 +20,8 @@ const About = () => {
             Nossa equipe é composta por profissionais com mais de <strong>15 anos de experiência</strong> atuando 
             em grandes empreendimentos, shoppings e eventos, garantindo{" "}
             <strong className="text-primary">criatividade, qualidade e segurança</strong> em cada projeto. 
-            Unimos inovação e tradição para levar o verdadeiro clima do Natal a condomínios residenciais, 
-            prédios comerciais e empresas.
+            Unimos inovação e tradição para levar o verdadeiro encantamento a shoppings, prédios e condomínios 
+            comerciais e residenciais, empresas, comércios, eventos corporativos, prefeituras e parques em geral.
           </p>
         </div>
 
@@ -35,7 +35,8 @@ const About = () => {
             <h3 className="text-2xl font-bold mb-4">Missão</h3>
             <p className="text-muted-foreground leading-relaxed">
               Levar magia, alegria e excelência para ambientes residenciais, comerciais e corporativos por meio 
-              de decorações natalinas personalizadas, criando experiências inesquecíveis.
+              de decorações e iluminações temáticas e personalizadas, criando experiências inesquecíveis e 
+              promovendo integração e acolhimento para nossos clientes e suas comunidades.
             </p>
           </div>
 
@@ -46,8 +47,9 @@ const About = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4">Visão</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Ser referência nacional em decoração temática de Natal, reconhecida pela inovação, qualidade e 
-              impacto positivo que proporcionamos aos espaços.
+              Ser referência nacional em decoração e iluminação temática, reconhecida pela inovação, qualidade e 
+              impacto positivo que proporcionamos aos espaços, transformando celebrações em momentos memoráveis 
+              e significativos para nossos clientes e suas famílias.
             </p>
           </div>
 
@@ -58,8 +60,9 @@ const About = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4">Nosso Time</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Nosso diferencial está na experiência e dedicação da equipe, formada por especialistas que conhecem 
-              profundamente o mercado de decoração natalina.
+              Nosso diferencial está na experiência e dedicação de uma equipe apaixonada por transformar espaços 
+              com luz e beleza. Especialistas em decoração sazonal, unimos inovação e emoção para criar projetos 
+              que encantam e inspiram.
             </p>
           </div>
         </div>
