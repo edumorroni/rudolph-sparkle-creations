@@ -12,9 +12,9 @@ const Footer = () => {
   ];
 
   const services = [
+    "Shoppings e Outlets",
+    "Empresas e Corporativos",
     "Condomínios Residenciais",
-    "Empresas e Corporativo",
-    "Shoppings e Comércio",
     "Projetos Personalizados",
   ];
 
