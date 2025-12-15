@@ -45,11 +45,15 @@ const Differentials = () => {
     },
     {
       title: "Qualidade e Segurança",
-      description: "Trabalhamos com materiais confiáveis e práticas que priorizam a segurança.",
+      description: "Trabalhamos com materiais confiáveis e práticas que priorizam a segurança de todos.",
+    },
+    {
+      title: "Sustentabilidade",
+      description: "Valorizamos o uso consciente de recursos para preservar o meio ambiente.",
     },
     {
       title: "Respeito e Colaboração",
-      description: "Construímos relações transparentes baseadas na confiança.",
+      description: "Construímos relações transparentes e baseadas na confiança com clientes, fornecedores e equipe.",
     },
   ];
 
@@ -62,9 +66,6 @@ const Differentials = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Nossos <span className="text-gradient-primary">Diferenciais</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              O que nos torna únicos no mercado de decoração natalina
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -94,7 +95,7 @@ const Differentials = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
             {values.map((value, index) => (
               <div
                 key={index}
