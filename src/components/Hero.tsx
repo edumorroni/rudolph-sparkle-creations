@@ -2,6 +2,52 @@ import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-bg.jpg";
 import rudolphMascot from "@/assets/rudolph-mascot-new.png";
 import logoHero from "@/assets/logo-hero.png";
+import { useEffect, useState } from "react";
+
+// Particle component for animated lights
+const LightParticles = () => {
+  const [particles, setParticles] = useState<Array<{
+    id: number;
+    left: number;
+    delay: number;
+    duration: number;
+    size: number;
+    opacity: number;
+  }>>([]);
+
+  useEffect(() => {
+    const newParticles = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 8,
+      duration: 4 + Math.random() * 4,
+      size: 2 + Math.random() * 4,
+      opacity: 0.3 + Math.random() * 0.7,
+    }));
+    setParticles(newParticles);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="absolute rounded-full animate-fall"
+          style={{
+            left: `${particle.left}%`,
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            backgroundColor: particle.id % 3 === 0 ? '#FFD700' : particle.id % 3 === 1 ? '#FFFFFF' : '#FFA500',
+            opacity: particle.opacity,
+            animationDelay: `${particle.delay}s`,
+            animationDuration: `${particle.duration}s`,
+            boxShadow: `0 0 ${particle.size * 2}px ${particle.id % 3 === 0 ? '#FFD700' : particle.id % 3 === 1 ? '#FFFFFF' : '#FFA500'}`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 const Hero = () => {
   return (
@@ -15,6 +61,9 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,75%,25%)] via-[hsl(0,70%,30%)] to-[hsl(0,65%,20%)]"></div>
       </div>
+
+      {/* Animated Light Particles */}
+      <LightParticles />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 py-32">
@@ -61,15 +110,22 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Mascot Image */}
+          {/* Mascot Image with Animation */}
           <div className="hidden lg:flex justify-center items-center animate-fade-in">
-            <div className="relative">
-              <div className="absolute inset-0 bg-secondary/20 blur-3xl rounded-full"></div>
-              <img
-                src={rudolphMascot}
-                alt="Brilhus - Mascote Rudolph Shining"
-                className="relative w-full max-w-lg drop-shadow-2xl hover-lift scale-x-[-1]"
-              />
+            <div className="relative group">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-secondary/30 blur-3xl rounded-full animate-pulse-glow"></div>
+              
+              {/* Mascot with floating animation and nose glow */}
+              <div className="relative animate-float">
+                <img
+                  src={rudolphMascot}
+                  alt="Brilhus - Mascote Rudolph Shining"
+                  className="relative w-full max-w-lg drop-shadow-2xl scale-x-[-1] transition-transform duration-300 group-hover:scale-x-[-1.05] group-hover:scale-y-105"
+                />
+                {/* Nose glow effect */}
+                <div className="absolute top-[30%] right-[42%] w-8 h-8 bg-red-500 rounded-full blur-md animate-nose-glow"></div>
+              </div>
             </div>
           </div>
         </div>
