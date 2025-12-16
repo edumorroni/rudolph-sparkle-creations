@@ -60,6 +60,8 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,75%,25%)] via-[hsl(0,70%,30%)] to-[hsl(0,65%,20%)]"></div>
+        {/* Vinheta escura nas bordas */}
+        <div className="absolute inset-0 shadow-[inset_0_0_150px_60px_rgba(0,0,0,0.5)]"></div>
       </div>
 
       {/* Animated Light Particles */}
@@ -67,18 +69,18 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div className="text-center">
-            <div className="mb-8 animate-fade-in">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8">
+          {/* Text Content - 1/3 */}
+          <div className="text-center lg:w-1/3">
+            <div className="mb-6 animate-fade-in">
               <img
                 src={logoHero}
                 alt="Rudolph Shining - Iluminando Sonhos, Transformando Espaços"
-                className="w-full max-w-2xl mx-auto"
+                className="w-full max-w-md mx-auto"
               />
             </div>
 
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in">
+            <p className="text-base md:text-lg text-white/90 mb-6 max-w-md mx-auto animate-fade-in">
               Especialistas em transformar ambientes com projetos decorativos personalizados que encantam e geram valor, para condomínios, empresas e shoppings.
             </p>
 
@@ -94,37 +96,37 @@ const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mt-12 max-w-xl mx-auto animate-fade-in">
+            <div className="grid grid-cols-3 gap-6 mt-10 max-w-md mx-auto animate-fade-in">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">15+</div>
-                <div className="text-sm text-white/80">Anos de Experiência</div>
+                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">15+</div>
+                <div className="text-xs text-white/80">Anos de Experiência</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">100%</div>
-                <div className="text-sm text-white/80">Satisfação</div>
+                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">100%</div>
+                <div className="text-xs text-white/80">Satisfação</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">LED</div>
-                <div className="text-sm text-white/80">Sustentável</div>
+                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">LED</div>
+                <div className="text-xs text-white/80">Sustentável</div>
               </div>
             </div>
           </div>
 
-          {/* Mascot Image with Animation */}
-          <div className="hidden lg:flex justify-center items-center animate-fade-in">
+          {/* Mascot Image - 1/3 */}
+          <div className="hidden lg:flex justify-center items-center animate-fade-in lg:w-1/3">
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-secondary/30 blur-3xl rounded-full animate-pulse-glow"></div>
               
-              {/* Mascot with floating animation and nose glow */}
-              <div className="relative animate-float">
+              {/* Mascot static with nose glow */}
+              <div className="relative">
                 <img
                   src={rudolphMascot}
                   alt="Brilhus - Mascote Rudolph Shining"
-                  className="relative w-full max-w-lg drop-shadow-2xl scale-x-[-1] transition-transform duration-300 group-hover:scale-x-[-1.05] group-hover:scale-y-105"
+                  className="relative w-full max-w-md drop-shadow-2xl scale-x-[-1] transition-transform duration-300 group-hover:scale-x-[-1.05] group-hover:scale-y-105"
                 />
-                {/* Nose glow effect */}
-                <div className="absolute top-[30%] right-[42%] w-8 h-8 bg-red-500 rounded-full blur-md animate-nose-glow"></div>
+                {/* Nose glow effect - posição corrigida */}
+                <div className="absolute top-[52%] right-[38%] w-6 h-6 bg-red-500 rounded-full blur-md animate-nose-glow"></div>
               </div>
             </div>
           </div>
