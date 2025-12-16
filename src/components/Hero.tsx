@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import heroBackground from "@/assets/hero-bg.jpg";
-import rudolphMascot from "@/assets/rudolph-mascot-new.png";
-import logoHero from "@/assets/logo-hero.png";
-import { useEffect, useState } from "react";
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import { useEffect, useState, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Particle component for animated lights
 const LightParticles = () => {
@@ -50,94 +50,98 @@ const LightParticles = () => {
 };
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      image: heroSlide1,
+      showContent: false, // First slide shows only the image/logo
+    },
+    {
+      image: heroSlide2,
+      showContent: false, // Second slide shows the content from image
+    },
+  ];
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
+  // Auto-advance slides
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 6000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroBackground}
-          alt="Decoração Natalina Premium"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,75%,25%)] via-[hsl(0,70%,30%)] to-[hsl(0,65%,20%)]"></div>
-        {/* Vinheta escura nas bordas */}
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_60px_rgba(0,0,0,0.5)]"></div>
-      </div>
+      {/* Slides */}
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <img
+            src={slide.image}
+            alt={`Rudolph Shining - Slide ${index + 1}`}
+            className="w-full h-full object-cover"
+          />
+          {/* Dark vignette overlay */}
+          <div className="absolute inset-0 shadow-[inset_0_0_150px_60px_rgba(0,0,0,0.4)]"></div>
+        </div>
+      ))}
 
       {/* Animated Light Particles */}
       <LightParticles />
 
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 py-32">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8">
-          {/* Text Content - 1/3 */}
-          <div className="text-center lg:w-1/3">
-            <div className="mb-6 animate-fade-in">
-              <img
-                src={logoHero}
-                alt="Rudolph Shining - Iluminando Sonhos, Transformando Espaços"
-                className="w-full max-w-md mx-auto"
-              />
-            </div>
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all"
+        aria-label="Slide anterior"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all"
+        aria-label="Próximo slide"
+      >
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
 
-            <p className="text-base md:text-lg text-white/90 mb-6 max-w-md mx-auto animate-fade-in">
-              Especialistas em transformar ambientes com projetos decorativos personalizados que encantam e geram valor, para condomínios, empresas e shoppings.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 text-lg px-8"
-              >
-                <a href="#servicos">Nossos Serviços</a>
-              </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-10 max-w-md mx-auto animate-fade-in">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">15+</div>
-                <div className="text-xs text-white/80">Anos de Experiência</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">100%</div>
-                <div className="text-xs text-white/80">Satisfação</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">LED</div>
-                <div className="text-xs text-white/80">Sustentável</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mascot Image - 1/3 */}
-          <div className="hidden lg:flex justify-center items-center animate-fade-in lg:w-1/3">
-            <div className="relative group">
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-secondary/30 blur-3xl rounded-full animate-pulse-glow"></div>
-              
-              {/* Mascot static with nose glow */}
-              <div className="relative">
-                <img
-                  src={rudolphMascot}
-                  alt="Brilhus - Mascote Rudolph Shining"
-                  className="relative w-full max-w-md drop-shadow-2xl scale-x-[-1] transition-transform duration-300 group-hover:scale-x-[-1.05] group-hover:scale-y-105"
-                />
-                {/* Nose glow effect - posição corrigida */}
-                <div className="absolute top-[52%] right-[38%] w-6 h-6 bg-red-500 rounded-full blur-md animate-nose-glow"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Slide Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === currentSlide
+                ? "bg-secondary w-8"
+                : "bg-white/50 hover:bg-white/70"
+            }`}
+            aria-label={`Ir para slide ${index + 1}`}
+          />
+        ))}
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-white/70 rounded-full"></div>
-        </div>
+      {/* CTA Button - appears on all slides */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20">
+        <Button
+          size="lg"
+          variant="outline"
+          asChild
+          className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 text-lg px-8"
+        >
+          <a href="#servicos">Nossos Serviços</a>
+        </Button>
       </div>
     </section>
   );
