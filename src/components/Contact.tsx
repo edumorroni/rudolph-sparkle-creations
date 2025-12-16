@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -11,31 +11,47 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create WhatsApp message
-    const message = `Olá! Gostaria de solicitar um orçamento.
-    
-Nome: ${formData.name}
-Email: ${formData.email}
-Telefone: ${formData.phone}
-Mensagem: ${formData.message}`;
-    
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
-    
+    setIsSubmitting(true);
+
+    // Validate inputs
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name || !email || !message) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Create mailto link
+    const subject = encodeURIComponent(`Contato via Site - ${name}`);
+    const body = encodeURIComponent(
+      `Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`
+    );
+    const mailtoUrl = `mailto:contato@rudolphshining.com.br?subject=${subject}&body=${body}`;
+
+    // Open email client
+    window.location.href = mailtoUrl;
+
     toast({
-      title: "Redirecionando para WhatsApp",
-      description: "Você será direcionado para conversar conosco.",
+      title: "Abrindo seu cliente de e-mail",
+      description: "Complete o envio no seu aplicativo de e-mail.",
     });
-    
+
     // Reset form
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(false);
   };
 
   const contactInfo = [
@@ -54,30 +70,31 @@ Mensagem: ${formData.message}`;
   ];
 
   return (
-    <section id="contato" className="py-20 bg-background">
+    <section id="contato" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Solicite um <span className="text-gradient-gold">Orçamento</span>
+            Fale <span className="text-gradient-gold">Conosco</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Entre em contato conosco e transforme seu espaço neste Natal
+            Entre em contato e vamos transformar seu espaço
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+        <div className="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="shadow-elegant border-0">
+          <Card className="shadow-elegant border-0 bg-background">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Nome Completo *
+                    Nome *
                   </label>
                   <Input
                     id="name"
                     required
+                    maxLength={100}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Seu nome"
@@ -87,30 +104,16 @@ Mensagem: ${formData.message}`;
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email *
+                    E-mail *
                   </label>
                   <Input
                     id="email"
                     type="email"
                     required
+                    maxLength={255}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="seu@email.com"
-                    className="w-full"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                    Telefone/WhatsApp *
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="(11) 99999-9999"
                     className="w-full"
                   />
                 </div>
@@ -122,32 +125,35 @@ Mensagem: ${formData.message}`;
                   <Textarea
                     id="message"
                     required
+                    maxLength={1000}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Conte-nos sobre seu projeto..."
+                    placeholder="Escreva sua mensagem..."
                     rows={5}
-                    className="w-full"
+                    className="w-full resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-primary text-primary-foreground hover:shadow-glow"
                 >
-                  Enviar Mensagem
+                  <Send className="w-4 h-4 mr-2" />
+                  {isSubmitting ? "Enviando..." : "Enviar"}
                 </Button>
               </form>
             </CardContent>
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col justify-center">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Entre em Contato</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <h3 className="text-2xl font-bold mb-4">Entre em Contato</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 Nossa equipe está pronta para atender você e criar o projeto perfeito 
-                para transformar seu espaço neste Natal. Entre em contato pelos canais abaixo:
+                para transformar seu espaço.
               </p>
             </div>
 
@@ -172,17 +178,13 @@ Mensagem: ${formData.message}`;
             </div>
 
             {/* CTA Box */}
-            <Card className="bg-gradient-primary text-white border-0 mt-8">
+            <Card className="bg-gradient-primary text-white border-0 mt-4">
               <CardContent className="p-6">
                 <h4 className="text-xl font-bold mb-2">Atendimento Personalizado</h4>
-                <p className="text-white/90 mb-4">
+                <p className="text-white/90">
                   Cada projeto é único. Vamos conversar sobre suas necessidades e criar 
                   uma solução perfeita para você.
                 </p>
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
-                  <span>Resposta em até 24 horas</span>
-                </div>
               </CardContent>
             </Card>
           </div>
