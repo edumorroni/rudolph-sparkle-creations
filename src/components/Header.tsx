@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-header.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,24 +24,24 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gray-400/95 backdrop-blur-lg ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gray-500/95 backdrop-blur-lg ${
         isScrolled ? "shadow-elegant" : ""
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-22">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Rudolph Shining" className="h-12 w-auto" />
+            <img src={logo} alt="Rudolph Shining" className="h-16 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center justify-center gap-10 w-[60%]">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                className="text-base font-bold text-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
