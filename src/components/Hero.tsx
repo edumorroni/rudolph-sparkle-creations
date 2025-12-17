@@ -1,5 +1,6 @@
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import logoHero from "@/assets/logo-hero.png";
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
