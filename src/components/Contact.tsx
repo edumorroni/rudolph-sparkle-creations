@@ -138,7 +138,7 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-primary text-primary-foreground hover:shadow-glow"
+                  className="w-full bg-gradient-dark-red text-white hover:shadow-glow"
                 >
                   <Send className="w-4 h-4 mr-2" />
                   {isSubmitting ? "Enviando..." : "Enviar"}
@@ -178,7 +178,7 @@ const Contact = () => {
             </div>
 
             {/* CTA Box */}
-            <Card className="bg-gradient-primary text-white border-0 mt-4">
+            <Card className="bg-gradient-dark-red text-white border-0 mt-4 shadow-lg">
               <CardContent className="p-6">
                 <h4 className="text-xl font-bold mb-2">Atendimento Personalizado</h4>
                 <p className="text-white/90">

@@ -99,7 +99,7 @@ const Differentials = () => {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-gradient-primary text-white rounded-xl p-6 hover-lift"
+                className="bg-gradient-dark-red text-white rounded-xl p-6 hover-lift shadow-lg"
               >
                 <div className="w-8 h-1 bg-secondary mb-4 rounded-full"></div>
                 <h3 className="text-lg font-bold mb-2">{value.title}</h3>
