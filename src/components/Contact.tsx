@@ -2,9 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Phone } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+
+const WHATSAPP_NUMBER = "5511940021762";
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 const Contact = () => {
   const { toast } = useToast();
@@ -55,6 +58,12 @@ const Contact = () => {
   };
 
   const contactInfo = [
+    {
+      icon: Phone,
+      title: "WhatsApp",
+      content: "(11) 94002-1762",
+      href: WHATSAPP_LINK,
+    },
     {
       icon: Mail,
       title: "Email",
