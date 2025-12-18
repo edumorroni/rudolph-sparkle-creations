@@ -82,17 +82,9 @@ const Hero = () => {
           {/* Logo */}
           <img 
             src={logoHero} 
-            alt="Rudolph Shining" 
-            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[650px] mb-6 md:mb-10 drop-shadow-2xl"
+            alt="Rudolph Shining - Iluminando Sonhos, Transformando Espaços" 
+            className="w-[320px] sm:w-[450px] md:w-[580px] lg:w-[700px] xl:w-[850px] drop-shadow-2xl"
           />
-          
-          {/* Tagline */}
-          <p 
-            className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide drop-shadow-lg"
-            style={{ fontFamily: "'Dancing Script', cursive" }}
-          >
-            Iluminando Sonhos, Transformando Espaços
-          </p>
         </div>
         
         {/* Scroll Indicator */}
@@ -148,7 +140,7 @@ const Hero = () => {
               <img 
                 src={rudolphSparkles} 
                 alt="Rudolph Mascot" 
-                className="w-[280px] sm:w-[350px] md:w-[450px] lg:w-[500px] xl:w-[550px] drop-shadow-2xl"
+                className="w-[320px] sm:w-[420px] md:w-[520px] lg:w-[580px] xl:w-[650px] drop-shadow-2xl"
               />
             </div>
           </div>
