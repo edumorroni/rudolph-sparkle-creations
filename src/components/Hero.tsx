@@ -8,6 +8,52 @@ import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import "@fontsource/dancing-script/700.css";
 
+// Falling lights component
+const FallingLights = () => {
+  const [lights, setLights] = useState<Array<{
+    id: number;
+    left: number;
+    delay: number;
+    duration: number;
+    size: number;
+    opacity: number;
+  }>>([]);
+
+  useEffect(() => {
+    const newLights = Array.from({ length: 80 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 10,
+      duration: 4 + Math.random() * 6,
+      size: 2 + Math.random() * 5,
+      opacity: 0.5 + Math.random() * 0.5,
+    }));
+    setLights(newLights);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
+      {lights.map((light) => (
+        <div
+          key={light.id}
+          className="absolute rounded-full animate-fall"
+          style={{
+            left: `${light.left}%`,
+            top: `-${light.size}px`,
+            width: `${light.size}px`,
+            height: `${light.size}px`,
+            backgroundColor: light.id % 3 === 0 ? '#FFD700' : light.id % 3 === 1 ? '#FFFFFF' : '#FFA500',
+            opacity: light.opacity,
+            animationDelay: `${light.delay}s`,
+            animationDuration: `${light.duration}s`,
+            boxShadow: `0 0 ${light.size * 3}px ${light.id % 3 === 0 ? '#FFD700' : light.id % 3 === 1 ? '#FFFFFF' : '#FFA500'}`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 // Particle component for animated lights
 const LightParticles = () => {
   const [particles, setParticles] = useState<Array<{
@@ -23,7 +69,7 @@ const LightParticles = () => {
   useEffect(() => {
     const newParticles = Array.from({ length: 60 }, (_, i) => ({
       id: i,
-      left: 50 + Math.random() * 50, // Concentrate on right side
+      left: 50 + Math.random() * 50,
       top: Math.random() * 100,
       delay: Math.random() * 8,
       duration: 3 + Math.random() * 4,
@@ -61,6 +107,9 @@ const Hero = () => {
     <section id="inicio" className="relative">
       {/* First Hero Section - Main Brand (Reference: 1-4.jpg) */}
       <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[hsl(0,85%,45%)] via-[hsl(0,75%,30%)] to-[hsl(0,65%,18%)]">
+        {/* Falling Lights Effect */}
+        <FallingLights />
+        
         {/* Antler silhouettes in background */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
           <img 
