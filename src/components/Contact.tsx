@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MapPin, Send, Phone } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const WHATSAPP_NUMBER = "5511940021762";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -37,24 +38,30 @@ const Contact = () => {
       return;
     }
 
-    // Create mailto link
-    const subject = encodeURIComponent(`Contato via Site - ${name}`);
-    const body = encodeURIComponent(
-      `Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`
-    );
-    const mailtoUrl = `mailto:contato@rudolphshining.com.br?subject=${subject}&body=${body}`;
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: { name, email, message },
+      });
 
-    // Open email client
-    window.location.href = mailtoUrl;
+      if (error) throw error;
 
-    toast({
-      title: "Abrindo seu cliente de e-mail",
-      description: "Complete o envio no seu aplicativo de e-mail.",
-    });
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contato em breve.",
+      });
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      // Reset form
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error: any) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente ou entre em contato pelo WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
