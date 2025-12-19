@@ -157,46 +157,38 @@ const Contact = () => {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-6 flex flex-col justify-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Entre em Contato</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Nossa equipe está pronta para atender você e criar o projeto perfeito 
-                para transformar seu espaço.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <a
-                  key={index}
-                  href={info.href}
-                  target={info.href.startsWith("http") ? "_blank" : undefined}
-                  rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted transition-colors group"
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <info.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">{info.title}</h4>
-                    <p className="text-muted-foreground">{info.content}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {/* CTA Box */}
-            <Card className="bg-gradient-dark-red text-white border-0 mt-4 shadow-lg">
-              <CardContent className="p-6">
-                <h4 className="text-xl font-bold mb-2">Atendimento Personalizado</h4>
-                <p className="text-white/90">
-                  Cada projeto é único. Vamos conversar sobre suas necessidades e criar 
-                  uma solução perfeita para você.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="space-y-4 flex flex-col justify-center">
+            {contactInfo.map((info, index) => (
+              <a
+                key={index}
+                href={info.href}
+                target={info.href.startsWith("http") ? "_blank" : undefined}
+                rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted transition-colors group"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <info.icon className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">{info.title}</h4>
+                  <p className="text-muted-foreground">{info.content}</p>
+                </div>
+              </a>
+            ))}
           </div>
+        </div>
+
+        {/* CTA Box - Full Width */}
+        <div className="max-w-4xl mx-auto mt-8">
+          <Card className="bg-gradient-dark-red text-white border-0 shadow-lg">
+            <CardContent className="p-6 text-center">
+              <h4 className="text-xl font-bold mb-2">Atendimento Personalizado</h4>
+              <p className="text-white/90">
+                Cada projeto é único. Vamos conversar sobre suas necessidades e criar 
+                uma solução perfeita para você.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
