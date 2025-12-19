@@ -137,11 +137,11 @@ const Hero = () => {
             
             {/* Right Content - Rudolph Mascot */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-              <img 
-                src={rudolphSparkles} 
-                alt="Rudolph Mascot" 
-                className="w-[320px] sm:w-[420px] md:w-[520px] lg:w-[580px] xl:w-[650px] drop-shadow-2xl"
-              />
+          <img 
+            src={rudolphSparkles} 
+            alt="Rudolph Mascot" 
+            className="w-[400px] sm:w-[500px] md:w-[600px] lg:w-[50vw] xl:w-[50vw] max-w-none drop-shadow-2xl"
+          />
             </div>
           </div>
         </div>
